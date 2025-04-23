@@ -16,10 +16,16 @@ export default function MainPage() {
     redirect('/login');
   }
 
+  let user: DecodedToken | null = null;
+
   try {
-    const user = jwt.verify(token, process.env.JWT_SECRET!) as DecodedToken;
-    return <MainLayoutClient user={user} />;
-  } catch {
+    user = jwt.verify(token, process.env.JWT_SECRET!) as DecodedToken;
+  } catch (error) {
+    console.error('Invalid token:', error);
     redirect('/login');
   }
+
+  return (
+    <MainLayoutClient user={{ email: user!.email, fullName: user!.fullName }} />
+  );
 }

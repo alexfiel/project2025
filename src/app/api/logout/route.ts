@@ -6,7 +6,7 @@ export async function POST() {
   // Properly remove the cookie
   response.cookies.set('token', '', {
     httpOnly: true,
-    path: '/main',
+    path: '/',
     expires: new Date(0), // Expire immediately
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',

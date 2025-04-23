@@ -18,6 +18,7 @@ model User {
   email String @unique
   password String 
   fullName String
+  realproperties RealProperty[]
   createdAt DateTime @default(now())
 }
 
@@ -39,4 +40,16 @@ model Expense {
   amount      Float
   createdAt   DateTime @default(now())
 
+}
+
+model RealProperty {
+  id          String   @id @default(uuid())
+  ownerName   String
+  lotNumber   String
+  area        Float
+  marketValue Float
+  userId      String
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
 }

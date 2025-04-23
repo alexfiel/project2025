@@ -32,7 +32,7 @@ export async function POST(req:Request) {
             );
         }
 
-        const token = jwt.sign({ email: user.email, fullName: user.fullName }, process.env.JWT_SECRET!, {
+        const token = jwt.sign({ userId: user.id, email: user.email, fullName: user.fullName }, process.env.JWT_SECRET!, {
             expiresIn: '1h',
           });
         
@@ -44,7 +44,7 @@ export async function POST(req:Request) {
             value: token,
             httpOnly: true,
             maxAge: 3600,
-            path: '/main',
+            path: '/',
           });
         return response;
         /*
