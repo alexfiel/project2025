@@ -72,9 +72,9 @@ export default function RealPropertyForm({ userId, fullName, email }: RealProper
     return (
         <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto p-6">
            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded">
-        <p><strong>User ID:</strong> {userId}</p>
+        <p className='hidden'><strong>User ID:</strong> {userId}</p>
+        <p><strong>Logged In as:</strong> {fullName}</p>
         <p><strong>Email:</strong> {email}</p>
-        <p><strong>Full Name:</strong> {fullName}</p>
       </div>
             
             <div>

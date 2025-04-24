@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Home, Settings, LogOut, User, FileText } from 'lucide-react';
+import { Home, Settings, LogOut, User, FileText, House, Building2 } from 'lucide-react';
 import Image from 'next/image';
 
 interface Props {
@@ -38,6 +38,7 @@ export default function MainLayoutClient({ user }: Props) {
   const menuItems = [
     { label: 'Home', href: '/', icon: <Home size={20} /> },
     { label: 'Transaction', href: '/transaction', icon: <FileText size={20} /> },
+    { label: 'RPT Management', href: '/rpt', icon: <Building2 size={20} /> },
     { label: 'Profile', href: '/profile', icon: <User size={20} /> },
     { label: 'Settings', href: '/settings', icon: <Settings size={20} /> },
   ];
